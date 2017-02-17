@@ -10,7 +10,7 @@
 # Licence:     <your licence>
 #-------------------------------------------------------------------------------
 
-
+# https://fedorahosted.org/suds/
 from suds.client import Client
 
 def main():
@@ -22,7 +22,7 @@ def main():
 
 def call():
     #url = 'http://www.webservicex.net/WeatherForecast.asmx?WSDL'
-    url = 'http://satis.ncdr.nat.gov.tw/webservice1/IDTservice1.asmx?wsdl'
+    url = 'http://IDTsatis.ncdr.nat.gov.tw/webservice1/service1.asmx?wsdl'
     client = Client(url)
 
     list_of_methods = [method for method in client.wsdl.services[0].ports[0].methods]
