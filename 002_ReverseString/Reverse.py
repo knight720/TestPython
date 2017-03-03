@@ -56,26 +56,44 @@ def reverse2(inS):
         lCount = len(lList)
         rCount = len(rList)
         if lCount > 0 and (lCount == rCount):
-            for ii in range(lCount):
-                print 'ii',ii
-                sIndex = lList[ii]+1
-                eIndex = rList[ii]
+            if lCount == 1 and lList[0] == 0 and rList[0] == len(inS)-1:
+                return outS[0] + outS[1:-1][::-1] + outS[-1]
+
+            if lCount == 1:
+                sIndex = lList[0]
+                eIndex = rList[0]+1
                 rS = reverse2(outS[sIndex:eIndex])
-                sStr = outS[:sIndex-1]
+                sStr = outS[:sIndex]
                 sStr = sStr if sStr is not None else ''
-                eStr = outS[eIndex+1:]
+                eStr = outS[eIndex:]
                 eStr = eStr if eStr is not None else ''
-                print rS
+                #print rS
                 outS = sStr + rS + eStr
-            return outS
+
+            else:
+                for ii in range(lCount):
+                    #print 'ii',ii
+                    sIndex = lList[ii]
+                    eIndex = rList[ii-lCount]+1
+                    rS = reverse2(outS[sIndex:eIndex])
+                    sStr = outS[:sIndex]
+                    sStr = sStr if sStr is not None else ''
+                    eStr = outS[eIndex:]
+                    eStr = eStr if eStr is not None else ''
+                    #print rS
+                    outS = sStr + rS + eStr
+
+            lList = []
+            rList = []
+            #return outS
 
 
 
 
-    if lCount == 0:
-        return outS[::-1]
+    #if lCount == 0:
+        #return outS[::-1]
 
-    #return inS
+    return outS
 
     #print lList
     #print rList
