@@ -11,8 +11,8 @@
 
 def main():
     #abcdefghij
-    rs = reverse2('a(bc)defg(hi)j')
-    print 'output: ', rs
+    #rs = reverse2('a(bc)defg(hi)j')
+    #print 'output: ', rs
     rs = reverse2('a(bc(defg)hi)j')
     print 'output: ', rs
     pass
@@ -56,7 +56,7 @@ def reverse2(inS):
         lCount = len(lList)
         rCount = len(rList)
         if lCount > 0 and (lCount == rCount):
-            if lCount == 1 and lList[0] == 0 and rList[0] == len(inS)-1:
+            if lList[0] == 0 and rList[rCount-1] == len(inS)-1:
                 return outS[0] + outS[1:-1][::-1] + outS[-1]
 
             if lCount == 1:
@@ -74,7 +74,7 @@ def reverse2(inS):
                 for ii in range(lCount):
                     #print 'ii',ii
                     sIndex = lList[ii]
-                    eIndex = rList[ii-lCount]+1
+                    eIndex = rList[lCount-ii-1]+1
                     rS = reverse2(outS[sIndex:eIndex])
                     sStr = outS[:sIndex]
                     sStr = sStr if sStr is not None else ''
