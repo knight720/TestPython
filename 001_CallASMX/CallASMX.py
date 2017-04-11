@@ -21,16 +21,21 @@ def main():
     pass
 
 def call():
+	#Service網址
     #url = 'http://www.webservicex.net/WeatherForecast.asmx?WSDL'
     url = 'http://IDTsatis.ncdr.nat.gov.tw/webservice1/service1.asmx?wsdl'
     client = Client(url)
 
+	#Service提供的方法清單
     list_of_methods = [method for method in client.wsdl.services[0].ports[0].methods]
     print list_of_methods
 
+	#測試Service
     result = client.service.GetUserData('0990001','20170216@ncdr')
+	#轉換編碼
     rBig5 = result.encode('big5')
-    print rBig5
+    #輸出成果
+	print rBig5
 
     result = client.service.GetUserData('0990001','2017@ncdr')
     rBig5 = result.encode('big5')

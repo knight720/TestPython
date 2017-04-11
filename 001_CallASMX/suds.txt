@@ -1,0 +1,5 @@
+下載路徑
+https://bitbucket.org/jurko/suds
+
+放置路徑
+C:\Python27\Lib\suds
