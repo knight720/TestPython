@@ -1,0 +1,11 @@
+# 建立運行環境
+```
+docker build -t python-langchain \
+  --build-arg OPENAI_API_KEY="your-api-key" \
+  .
+```
+
+# 執行 LangChain 程式
+```
+docker run --rm -it -v $(pwd)/001_HelloWorld:/app python-langchain python /app/main.py
+```
