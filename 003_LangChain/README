@@ -7,5 +7,9 @@ docker build -t python-langchain \
 
 # 執行 LangChain 程式
 ```
+# docker run mapping volume
 docker run --rm -it -v $(pwd)/001_HelloWorld:/app python-langchain python /app/main.py
+
+# docker run 傳入多行指令
+docker run --rm -it -v $(pwd):/app python-langchain bash -c "cd app; poetry run python --version"
 ```
