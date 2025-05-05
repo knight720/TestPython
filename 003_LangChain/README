@@ -1,15 +1,24 @@
 # 建立運行環境
 ```
-docker build -t python-langchain \
-  --build-arg OPENAI_API_KEY="your-api-key" \
+docker build -t python-langchain:250505 \
   .
 ```
 
 # 執行 LangChain 程式
 ```
+docker run --rm -it -v $(pwd):/app python-langchain bash
 # docker run mapping volume
 docker run --rm -it -v $(pwd)/001_HelloWorld:/app python-langchain python /app/main.py
 
 # docker run 傳入多行指令
 docker run --rm -it -v $(pwd):/app python-langchain bash -c "cd app; poetry run python --version"
+
+# 設定環境變數
+docker run --rm -it -v $(pwd):/app -e OPENAI_API_KEY=kkk python-langchain poerty /app/ch1/01_dotenv.py
+
+# debug
+docker run --rm -it -e OPENAI_API_KEY=kkk python-langchain sh
+
+
 ```
+
